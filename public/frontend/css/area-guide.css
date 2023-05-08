@@ -1,0 +1,206 @@
+.col-md-8{
+    margin-left:16.6666667%;
+}
+.no-padding {
+    padding: 0 !important;
+}
+.post-item {
+    margin-bottom: 20px;
+    position: relative;
+}
+.post-item.style2 .post-content-wr {
+    position: relative;
+}
+.post-item.style2 .post-title {
+    margin: 15px 0 8px;
+    line-height: 26px;
+}
+.post-item.style2 .post-title a {
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 500;
+    text-transform: none;
+    color: #2f3d46;
+}
+.post-item.style2 .post-content .post-desc {
+    text-align: justify;
+}
+.post-item.style2 .post-meta-bot {
+    border-top: 1px solid #eaebec;
+    padding: 20px 0;
+}
+.post-meta-bot .btn {
+    float: right;
+}
+.btn-base {
+    color: #fff!important;
+    background-color: #e23c3c;
+    border: 1px solid;
+    border-color: #df2626;
+}
+.article-list-page .featured-article .post-image a div {
+    height: 410px;
+}
+.article-list-page .post-image a div {
+    width: 100%;
+    height: 255px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+}
+.col-md-12.featured-article > .post-item.style2.no-padding > .post-content-wr > .post-meta-top > .post-image > a > div {
+    height: 410px;
+    width: 100%;
+   
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+}
+.col-md-6 > .post-item.style2.no-padding > .post-content-wr > .post-meta-top > .post-image > a > div{
+    height: 255px;
+}
+
+/* Blog */
+.section-title-wr {
+    display: table;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.section-title.left {
+    display: table-cell;
+    color: #2f3d46;
+    font-size: 18px;
+}
+.section-title {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    position: relative;
+}
+.widget {
+    margin-bottom: 30px;
+}
+ul.categories {
+    list-style: none;
+    margin: 0;
+    padding: 0 !important;
+    border: 1px solid #eaebec;
+    overflow: hidden;
+}
+ul.categories>li {
+    border-bottom: 1px solid #eaebec;
+    position: relative;
+}
+ul.categories>li>a {
+ color: #2f3d46;
+    display: block;
+    padding: 10px 15px;
+}
+ul.categories>li>a:hover {
+    background: #e23c3c;
+    color: #fff;
+    text-decoration: none;
+}
+.clearfixs{
+    padding: 10px 15px;
+}
+.clearfixs:nth-child(odd){
+    background-color: #f4f5f4;
+}
+.clearfixs:nth-child(even){
+    background-color: white;
+
+}
+.clearfixs:nth-child(even)>a{
+    float: right;
+    margin-right: 0;
+    margin-left: 16px;
+    background-color: white;
+}
+.clearfixs > a{
+    float: left;
+    width: 72px;
+    height: 72px;
+    margin-right: 16px;
+}
+.clearfixs > a > img{
+    display: block;
+    width: 100%;
+    height: 100% !important;
+}
+.clearfixs > span.comment-author > a{
+    color:#2f3d46; 
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19px;
+}
+.clearfixs > span.comment-entry {
+    font-size: 12px;
+    line-height: 17px;
+}
+/*
+.widget-recent li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eaebec;
+}
+.widget-recent .post-thumb {
+    float: left;
+    width: 72px;
+    height: 72px;
+    margin-right: 16px;
+}
+.widget-recent .post-thumb img {
+    display: block;
+    width: 100%;
+    height: 100% !important;
+}
+.widget-recent .comment-author {
+    font-size: 12px;
+    color: #e23c3c;
+}
+.widget-recent .comment-author a, .widget-recent .post-title {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19px;
+    color:#2f3d46;
+} */
+.widget-container.widget-recent.widget-recent-boxed.widget-recent-comments > .inner{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: #f4f5f4;
+    padding: 5px;
+}
+.widget-container.widget-recent.widget-recent-boxed.widget-recent-comments{
+    margin-bottom: 10px;
+}
+@media only screen and (max-width:768px){
+    .col-md-8{
+        margin-left:0;
+        width: 100% !important;
+    }
+    .col-md-4{
+        width: 100% !important;
+        margin-top: 20px !important;
+        padding:10px;
+    }
+    section.pg-opt{
+        padding: 10px;
+    }
+}
+@media only screen and (max-width:425px){
+    section.slice {
+        padding:20px 16px !important;
+    }
+    .sidebar > .section-title-wr > h3.section-title.left > span{
+        font-size:25px ;
+    }
+    .col-md-4{
+        margin-top:20px;
+    }
+
+}

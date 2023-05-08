@@ -1,0 +1,212 @@
+section.slice {
+    padding: 30px 0;
+}
+.wp-section > .container > .row:nth-child(even) {
+    justify-content: end;
+}
+.homeDemandTrends {
+    background: linear-gradient(rgba(47,61,70,.3),rgba(47,61,70,.3)),url(images/home-bg-4.jpg) !important;
+    background-repeat: no-repeat !important; 
+    background-size: cover !important;
+}
+.bg-white {
+    background: #fff;
+    color: #666;
+}
+.homeBG h1 {
+    text-transform: none;
+    font-size: 350%;
+    text-shadow: 1px 1px 1px #000;
+}
+.strong-400 {
+    font-weight: 400 !important;
+}
+.c-white {
+    color: #fff !important;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.easy-autocomplete {
+    position: relative;
+}
+.homeBG #propertyLocation {
+    font-size: 125% !important;
+    height: 52px;
+    margin-top: 0;
+    border: none;
+    padding-left: 18px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.easy-autocomplete-container {
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+}
+.easy-autocomplete-container ul {
+    background: none repeat scroll 0 0 #fff;
+    border-top: 1px dotted #ccc;
+    display: none;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    position: relative;
+    top: -2px;
+}
+.homeBG .filter-panel label {
+    font-size: 100%;
+}
+.homeBG label {
+    color: #fff;
+}
+label {
+    margin-bottom: 5px;
+}
+.homeBG input.form-control, .homeBG select.form-control {
+    font-size: 100% !important;
+    height: 36px;
+    border: none;
+}
+.form-control {
+    padding: 6px 12px;
+    border-radius: 2px !important;
+    height: auto;
+}
+.btn-base {
+    color: #fff !important;
+    background-color: #e23c3c;
+    border: 1px solid;
+    border-color: #df2626;
+}
+.btn-lg {
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 2px;
+}
+button.btn.btn-lg.btn-base.btn-block{
+    margin-top: 25px;
+}
+.section-title-wr {
+    display: table;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.section-title.left {
+    display: table-cell;
+    color: #2f3d46;
+    font-size: 18px;
+}
+.no-text-transform {
+    text-transform: none !important;
+}
+.no-margin {
+    margin: 0 !important;
+}
+.table-bordered {
+    border: 1px solid #ddd;
+}
+.table {
+    width: 100%;
+    max-width: 100%;
+}
+.demand-trend table th.ds-rank {
+    width: 74px;
+}
+a.underline {
+    text-decoration: underline;
+}
+.red-text {
+    color: #e23c3c !important;
+}
+.demand-trend table td div.percentage-text {
+    float: left;
+    min-width: 46px;
+    margin-right: 10px;
+    line-height: 26px;
+}
+.demand-trend .progress {
+    margin-bottom: 0;
+    background: 0 0!important;
+}
+.progress.progress-lg {
+    height: 26px;
+}
+.progress {
+
+    border-radius: 0;
+}
+.progress-bar-report {
+    background-color: #1c40ae;
+}
+.progress-bar {
+    float: left;
+    
+    height: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    transition: width .6s ease;
+}
+table.table.table-bordered.no-margin > tbody > tr:nth-child(1){
+    background-color: #EAEBEC;
+}
+.slices{
+    margin-bottom: 30px;
+}
+.light-gray {
+    background: #f4f5f4;
+    color: #000;
+}
+.section-title-wr {
+    display: table;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.section-title.left {
+    display: table-cell;
+    color: #2f3d46;
+    font-size: 18px;
+}
+@media only screen and (max-width:768px){
+    section.slice.bg-white.no-padding > .wp-section > .container > .row > .col-md-6.voffset-40.voffset-bottom-40{
+        width:100%;
+    }
+    section.slice.bg-white.no-padding > .wp-section > .container > .row > .col-md-6.voffset-40.voffset-bottom-40:nth-child(2){
+     margin-top:20px !important;
+    }
+    section.slices.bg-white.no-padding > .wp-section > .container > .row > .col-md-6.voffset-40.voffset-bottom-40{
+        width: 100%;
+        margin-top: 0 !important;
+    }
+    section.slices.bg-white.no-padding > .wp-section > .container > .row > .col-md-6.voffset-40.voffset-bottom-40:nth-child(2){
+        width: 100%;
+        margin-top: 20px !important;
+    }
+    .col-md-12.text-center > h1.c-white.strong-400 {
+        font-size: 200% !important;
+        margin-bottom: 0.7em;
+        display: block !important;
+        color: white !important;
+    }
+
+}
+@media only screen and (max-width:425px){
+    section.slice {
+        padding: 30px 10px;
+    }
+    .homeBG #propertyLocation{
+        height: 38px;
+    }
+    .section-title-wr{
+        text-align: center;
+        margin-bottom:0px;
+
+    }
+    .section-title-wr > p{
+        font-size: 14px;
+        margin-bottom:0;
+    }
+}

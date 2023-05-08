@@ -1,0 +1,311 @@
+.pg-opt {
+    border-bottom: 1px solid #eaebec;
+    background: #f4f5f4;
+    color: #2f3d46;
+}
+h1.page-title {
+    margin: 0;
+    padding: 16px 0;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    text-transform: capitalize;
+    color: #2f3d46;
+    text-transform: none;
+}
+section.slice {
+    padding: 30px 0;
+}
+.voffset-bottom-0 {
+    margin-bottom: 0 !important;
+}
+.bg-white {
+    background: #fff;
+    color: #666;
+}
+.md-6{
+    float:left;
+}
+.wp-block {
+    margin: 0 0 15px;
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+    position: relative;
+    cursor: default;
+    border-radius: 2px;
+}
+.no-margin{
+    margin: 0 !important;
+}
+.user-form .form-header {
+    padding: 15px 20px;
+    background: #f4f5f4;
+    border-bottom: 1px solid #eaebec;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+.user-form .form-header h2 {
+    margin: 0;
+    padding: 0 !important;
+    font-size: 16px;
+    text-transform: none;
+    font-weight: 400;
+    color: #2f3d46;
+}
+.col-md-offset-3 {
+    margin-left: 25%;
+}
+.user-form .form-body {
+    padding: 15px 20px;
+}
+.sky-form fieldset {
+    display: block;
+    padding: 15px 0;
+    border: none;
+    background: 0 0;
+}
+.no-padding{
+    padding:0 !important;
+}
+.sky-form section {
+    margin-bottom: 20px;
+}
+.sky-form .label {
+    border-radius: 0;
+    font-size: 100%;
+    text-align: left;
+    white-space: normal;
+    color: inherit;
+    padding: 0;
+    color: #2f3d46;
+    margin-bottom: 6px;
+    line-height: 19px;
+    font-weight: 400;
+}
+label {
+    font-weight:400;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.sky-form .icon-append, .sky-form .icon-prepend {
+    color: #ccc;
+}
+.sky-form .icon-append {
+    right: 5px;
+    padding-left: 3px;
+    border-left-width: 1px;
+    border-left-style: solid;
+}
+.sky-form .icon-append, .sky-form .icon-prepend {
+    position: absolute;
+    top: 5px;
+    width: 29px;
+    height: 29px;
+    font-size: 15px;
+    line-height: 29px;
+    text-align: center;
+    border-color: #ccc;
+    /* -ms-transition: border-color .3s;
+    -moz-transition: border-color .3s; */
+}
+.sky-form .input .icon-append+input, .sky-form .textarea .icon-append+textarea {
+    padding-right: 46px;
+}
+.form-light .form-control, .sky-form .input input, .sky-form .select select, .sky-form .textarea textarea {
+    background-color: #fff;
+    border:1px solid #ccc !important;
+
+}
+.form-body > fieldset.no-padding > section > .row > section.col-xs-12 > label.input > input#name {
+    border: 1px solid #eee  !important;
+}
+.form-body > fieldset.no-padding > section > .row > section.col-xs-12 > label.input > input#username {
+    border: 1px solid #eee  !important;
+}
+.form-body > fieldset.no-padding > section > .row > section.col-xs-12 > label.input > input#email {
+    border: 1px solid #eee  !important;
+}
+.form-body > fieldset.no-padding > section > .row > section.col-xs-12 > label.input > input#password {
+    border: 1px solid #eee  !important;
+}
+.form-body > fieldset.no-padding > section > .row > section.col-xs-12 > label.input > input#password-confirm {
+    border: 1px solid #eee  !important;
+}
+label.input{
+    position: relative;
+}
+i.icon-append.fa.fa-user, i.icon-append.fa.fa-envelope, i.icon-append.fa.fa-lock  {
+    position: absolute;
+    margin-right: 10px;
+    right: -6px;
+    top: 4px;
+    border-left: 1px solid #ccc;
+    padding: 7px;
+}
+.radio-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.radio-container > .row{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.radio-container > .row > input#individual ,input#property_owner, input#property_developer, input#estate_agent{
+    width: 5%;
+}
+.radio-container > .row > label{
+    width: 93%;
+}
+label.property-owner {
+    margin-top: 13px;
+}
+.btn-base {
+    color: #fff!important;
+    background-color: #e23c3c;
+    border: 1px solid;
+    border-color: #df2626;
+    margin-top: 10px;
+}
+.btn-base:hover{
+    background-color: white !important;
+    color: #e23c3c !important;
+    border: 1px solid #e23c3c !important;
+}
+.f90p {
+    font-size: 90%;
+    line-height: 150%;
+    margin-top:10px;
+}
+.f90p > a{
+    color: #e23c3c;
+}
+.sky-form a {
+    color: #e23c3c;
+}
+.user-form .form-footer {
+    padding: 15px;
+    background: #f4f5f4;
+    border-top: 1px solid #eaebec;
+}
+.user-form .form-footer p {
+    margin: 0;
+    font-size: 14px;
+}
+.form-footer a {
+    color: #e23c3c !important;
+    font-size: 14px;
+}
+.form-footer > p{
+    font-size: 14px;
+}
+.announcement {
+    background-color: rgba(255,229,229,.7);
+    border-color: rgba(255,229,229,.7);
+    color: #2f3d46;
+}
+.announcement .title {
+    font-weight: 400;
+    text-transform: none;
+}
+.title {
+    margin: 0;
+    margin-bottom: 8px;
+    padding: 0;
+    color: #2f3d46;
+}
+.panel-body.text-center.announcement.voffset-20 > p.voffset-10 > a.underline{
+    color:#e23c3c;
+    text-decoration: underline !important;
+}
+.panel-body.text-center.announcement.voffset-20 > a{
+    color:#e23c3c;
+    text-decoration: underline !important;
+}
+.voffset-10 {
+    margin-top: 10px !important;
+}
+.breadcrumbs {
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+.breadcrumbs > li {
+    display: inline-block;
+}
+.breadcrumbs > li > a {
+    color:#2f3d46;
+}
+
+
+/* Login */
+.sky-form .checkbox input, .sky-form .radio input {
+    position: absolute;
+    left: -9999px;
+}
+.sky-form .checkbox i, .sky-form .radio i {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    display: block;
+    width: 13px;
+    height: 13px;
+    outline: 0;
+    border-width: 1px;
+    border-style: solid;
+    background: #fff;
+}
+.btn-base {
+    color: #fff !important;
+    background-color: #e23c3c !important;
+    border: 1px solid;
+    border-color: #df2626;
+}
+.pull-right {
+    float: right !important;
+}
+fieldset section {
+    margin-bottom: 20px;
+}
+
+/* Contact  */
+
+input.form-control, select.form-control {
+    height: 36px;
+    border: 1px solid #eee !important;
+}
+@media only screen and (max-width:768px){
+    .col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2 {
+        margin-left: 0;
+        width: 100%;
+    }
+    section.pg-opt{
+        padding: 10px;
+    }
+    label.individual {
+        margin-top: 9px;
+    }
+    label.property-owner {
+        margin-top: 5px;
+    }
+}
+@media only screen and (max-width:425px){
+    .radio-container > .row > input#individual, input#property_owner, input#property_developer, input#estate_agent {
+        width: 8%;
+    }
+    .radio-container > .row > label {
+        width: 92%;
+    }
+    label.property-owner {
+        margin-top: 17px;
+    }
+    .col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2 {
+        padding: 16px;
+    }
+}

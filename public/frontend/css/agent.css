@@ -1,0 +1,215 @@
+/* Agent start */
+
+.wp-block.default{
+    background-color: #fff;
+    border: 1px solid #eaebec;;
+    
+}
+.product-list-quick-filters {
+    background-color: #f4f5f4 !important;
+    border: none !important;
+}
+.sort-panel {
+    padding: 12px 20px;
+    margin-bottom: 15px;
+}
+.form-group.voffset-bottom-10 > button.btn.btn-base.btn-block {
+    background-color: #e23c3c;
+    color: white;
+    border-radius: 0px !important;
+}
+.product-list-filters {
+    margin-bottom: 25px;
+    background: #f4f5f4 !important;
+    border: 1px solid #eaebec !important;
+}
+.property-list h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 400;
+}
+a.underline {
+ color:#2f3d46 !important;
+    text-decoration: underline !important;
+}
+.text-right {
+    text-align: right !important;
+}
+
+
+.company-logo {
+    max-height: 35px;
+}
+.agent-section{
+    margin-top:10px;
+}
+/* Agent end */
+
+
+/* inner page */
+.product-details-links-panel {
+    padding: 10px;
+}
+.wp-block{
+    margin: 0 0 15px;
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+    position: relative;
+    cursor: default;
+    border-radius: 2px;
+}
+.light-gray {
+    background: #f4f5f4;
+    color: #000;
+}
+.product-details-links-panel a {
+    color: #e23c3c !important;
+}
+.voffset-bottom-15 {
+    margin-bottom: 15px!important;
+}
+.f15 {
+    font-size: 15px;
+}
+.property-details h4.content-title {
+    margin-bottom: 5px;
+    text-transform: none;
+}
+address {
+    margin-bottom: 20px;
+    font-style: normal;
+    line-height: 1.42857143;
+}
+.pull-right {
+    float: right!important;
+}
+.property-details-price .price, .wp-block.property.list .wp-block-content .price {
+    color: #e23c3c;
+    font-size: 22px;
+    font-weight: 700;
+}
+.property-details-price .period {
+    display: block;
+}
+.wp-block.property.list {
+    border-top-width: 1px!important;
+}
+.no-border {
+    border: none!important;
+}
+.mt-15 {
+    margin-top: 15px;
+}
+.wp-block.property.list .wp-block-footer.style2 ul.aux-info {
+    display: table;
+    width: 100%;
+    border: 1px solid #eaebec;
+}
+.wp-block.property.list .wp-block-footer ul.aux-info {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+    background: #f4f5f4;
+    border-top: 1px solid #eaebec;
+}
+.property-details .aux-info {
+    background-color: #fff!important;
+}
+ol, ul {
+    list-style: none;
+}
+.wp-block.property.list .wp-block-footer.style2 ul.aux-info li {
+    padding: 10px;
+    font-size: 12px;
+    text-align: center;
+}
+.wp-block.property.list .wp-block-footer ul.aux-info li {
+    margin-bottom: 0;
+    line-height: 22px;
+}
+.wp-block.property.list .wp-block-footer ul.aux-info li {
+    display: table-cell;
+    font-size: 12px;
+    padding: 10px 15px;
+    vertical-align: middle;
+    border-right: 1px solid #eaebec;
+}
+.wp-block.property.list .wp-block-footer.style2 ul.aux-info li i {
+    display: block;
+}
+.wp-block.property.list .wp-block-footer ul.aux-info li i {
+    vertical-align: text-bottom;
+}
+.wp-block.property.list .wp-block-footer ul.aux-info li i {
+    font-size: 15px;
+    margin-right: 8px;
+    color: #2f3d46;
+}
+ul.aux-info {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: white  !important;
+    border: 1px solid #f4f5f4;
+}
+ul.aux-info > li{
+    padding:20px !important;
+    border-right: 1px solid #eaebec;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+ul.aux-info > li > i{
+    color: #666666;
+    text-align: center;
+}
+ul.aux-info > li > .inner-part > span{
+    color: #666666;
+}
+.text-right {
+    text-align: right !important;
+}
+.property-list h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 400;
+}
+.property-list h2 a{
+    color:#2f3d46;
+}
+.property-list h2 a strong{
+    font-weight: 700;
+}
+a.underline {
+    text-decoration: underline;
+}
+.company-logo {
+    max-height: 35px;
+}
+hr {
+    margin: 15px 0;
+    border-color: #eaebec;
+    border-top: 2px solid #eee;
+
+}
+.col-md-3.hidden-xs.text-right {
+    width: 19%;
+}
+@media only screen and (max-width:425px){
+    .row{
+        --bx-gutter-x:0rem !important;
+    }
+    section.slice.bf-white > .wp-section > .container {
+        padding: 10px;
+    }
+    .pg-opt {
+        padding: 10px;
+    }
+    .blog{
+        margin-top:30px !important;
+    }
+}

@@ -1,0 +1,96 @@
+/* Post a request */
+.pg-opt {
+    border-bottom: 1px solid #eaebec;
+    background: #f4f5f4;
+    color: #2f3d46;
+}
+h1.page-title {
+    margin: 0;
+    padding: 16px 0;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    text-transform: capitalize;
+    color: #2f3d46;
+    text-transform: none;
+}
+.wp-block.default {
+    border: 1px solid;
+    border-color: #eaebec;
+    background: #fff;
+}
+.sky-form section {
+    margin-bottom: 20px;
+}
+.user-form .form-header {
+    padding: 15px 20px;
+    background: #f4f5f4;
+    border-bottom: 1px solid #eaebec;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.user-form .form-header h2 {
+    margin: 0;
+    padding: 0 !important;
+    font-size: 16px;
+    text-transform: none;
+    font-weight: 400;
+    color: #2f3d46;
+}
+.user-form .form-body {
+    padding: 15px 20px;
+}
+.sky-form fieldset {
+    display: block;
+    padding: 15px 0;
+    border: none;
+    background: 0 0;
+}
+.sky-form fieldset+fieldset {
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+.form-group , section#budgetPanel {
+    display: grid;
+}
+.row > section.col-sm-4.col-xs-12{
+    display: grid;;
+}
+label{
+    margin-bottom: 10px;
+}
+.sky-form .icon-prepend {
+    left: 5px;
+    padding-right: 3px;
+    border-right-width: 1px;
+    border-right-style: solid;
+}
+section#budgetPanel > label.input{
+    display: flex;
+    flex-direction: row;
+}
+section#budgetPanel > label.input > i{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.row > section.col-xs-12{
+    display: grid;
+}
+textarea{
+    width:100%;
+    margin-left:3px;
+    margin-top: 11px;
+}
+button.btn.btn-base.btn-icon.btn-icon-right.voffset-bottom-10.save-request-button{
+     color: #fff !important;
+    background-color: #e23c3c;
+    border: 1px solid;
+    border-color: #df2626;
+float: right;
+margin: 10px 0 0 0;
+}
+section.slice.bg-white{
+    margin: 20px 0;
+}
+/* ENd Post a Post request */

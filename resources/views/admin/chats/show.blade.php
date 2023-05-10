@@ -31,7 +31,11 @@
 
         </div>
     </div>
+<style>
 
+
+
+</style>
     @push('scripts')
 
     <script>
@@ -126,11 +130,11 @@
                     console.log(response);
                     $('#chatting').empty();
                     $('#loader').hide();
-
-                    $.each(response, function(index, item) {
-                        var newItem =item;
-                        $('#chatting').append(newItem);
-                    });
+                    $('#chatting').html(response);
+                    // $.each(response, function(index, item) {
+                    //     var newItem =item;
+                    //     $('#chatting').append(newItem);
+                    // });
                 },
                 error: function(xhr, status, error) {
                     console.error(error);

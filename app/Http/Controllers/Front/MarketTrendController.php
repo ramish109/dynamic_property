@@ -193,10 +193,11 @@ class MarketTrendController extends Controller
         $cityname= City::where('name','=', $data['title'])->get();
         $citytitle = $data['title'];
         $type = $data['type'];
-        $city = $cityname[0]->id;
+        
+        $city = ($cityname->count()) ? $cityname[0]->id : null;
+        $bedid = PropertyDetail::where('bed','=',$data['bed'])->pluck('property_id')->toArray();
 
-        if($data['type']  && $data['bed']=="" && $data['title'] ){
-
+        if($cityname->count()){
             $datalist = Property::select(
                 DB::raw('Count(price) as count'),
                 DB::raw('MIN(created_at) as date'),
@@ -206,41 +207,21 @@ class MarketTrendController extends Controller
                 DB::raw("DATE_FORMAT(created_at,'%M %Y') as months")
             )
             ->where('city_id','=',$cityname[0]->id)
-            ->where('type','=',$data['type'])
+            ->when(!empty($data['type']), function($query) use($data) {
+                $query->where('type','=',$data['type']);
+            })
+            ->when(!empty($bedid), function($query) use($bedid) {
+                $query->whereIn('id',$bedid);
+                
+            })
             ->groupBy('months')
             ->get();
-
-            if(($datalist->isNotEmpty())){ return view('frontend.market-locality-avgprice', compact('datalist', 'city','citytitle','type') ); }
-            else{ return redirect()->route('property.MarketTrends'); }
-
-        } if($data['type']  && $data['bed'] && $data['title'] ){
-
-            $bedid = PropertyDetail::where('bed','=',$data['bed'])->pluck('property_id')->toArray();
-            $datalist = Property::
-                select(
-                    DB::raw('Count(price) as count'),
-                    DB::raw('MIN(created_at) as date'),
-                    DB::raw('AVG(price) as avgprice'), 
-                    DB::raw('MIN(price) as minprice'), 
-                    DB::raw('MAX(price) as maxprice'), 
-                    DB::raw("DATE_FORMAT(created_at,'%M %Y') as months"),
-                )->whereIn('id',$bedid)
-                ->groupBy('months')
-                ->where('type','=',$data['type'])
-                ->where('city_id','=',$city)
-                ->get();
-
-
-            $cityname= City::select('name')->where('id','=',$city)->get();
-            $citytitle = $cityname[0]->name;
-            $type = 'rent';
-
-            if(($datalist->isNotEmpty())){ return view('frontend.market-locality-avgprice', compact('datalist', 'city','citytitle','type') ); }
-            else{ return redirect()->route('property.MarketTrends'); }
-         
-        } else {
-            return redirect()->route('property.MarketTrends');
+           
+            if(($datalist->isNotEmpty())){
+                 return view('frontend.market-locality-avgprice', compact('datalist', 'city','citytitle','type') );
+            }
         }
+        return redirect()->back()->with('error', 'Not found');   
     }
 
     public function fetch(Request $request)

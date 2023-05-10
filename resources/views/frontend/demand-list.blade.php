@@ -32,6 +32,8 @@
                                     <td colspan="3" class="text-center ">No property demand trend data breakdown found.</td>
                                 </tr>
                             @else --> 
+                            @if($trends->count())
+                           
                               @foreach ( $trends as $trend )
                                     <tr>
                                         <td class="text-center">{{$rank++}}</td>
@@ -72,7 +74,8 @@
                                         <td class="demand-trend-item">
                                             <div class="percentage-text">
                                             {{ round( $percent*$trend->Count ,1) }}%
-                                            </div>
+                                         
+                                        </div>
                                             <div class="progress progress-lg">
                                                 <div class="progress-bar progress-bar-report" role="progressbar"
                                                     aria-valuenow="{{ $percent*$trend->Count }}" aria-valuemin="0" aria-valuemax="100"
@@ -81,7 +84,12 @@
                                             </div>
                                         </td>
                                     </tr>
-                                @endforeach                             
+                                @endforeach     
+                            @else
+                            <tr>
+                                    <td colspan="3" class="text-center ">No property demand trend data breakdown found.</td>
+                                </tr>
+                            @endif                        
                             <!-- @endempty -->
                             </tbody>
                         </table>

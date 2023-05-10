@@ -170,22 +170,22 @@ class ChatController extends Controller
         foreach($userChats as $chat){
             if($chat->sender_id == $sender_id){
 
-                $chatting[] ='<a class="card-title text-dark mb-0">'.$chat->user->username.'</a>
-                <a class="card-subtitle text-muted" style="font-size:smaller"> '. 
+                $chatting[] ='<div class="panel-heading" ><a class="card-title text-dark mb-0">'.$chat->user->username.'</a>
+                <a class="card-subtitle text-muted" style="font-size:smaller;"> '. 
                     $chat->created_at->diffForHumans()
                 .'</a>'.
-                '<p class="card-text mb-3">'.$chat->message.'</p>';
+                '<p class="card-text mb-3">'.$chat->message.'</p></div>';
             
             }
 
             elseif($chat->sender_id == $reciever_id){
 
-                $chatting[] ='<a class="card-title text-primary mb-0">'
+                $chatting[] ='<div class="panel panel-default"><a class="card-title text-primary mb-0">'
                     .$chat->user->username.
                 '</a><a class="card-subtitle text-muted" style="font-size:smaller"> '
                     .$chat->created_at->diffForHumans().
                 '</a>
-                <p class="card-text mb-3">'.$chat->message.'</p>';
+                <p class="card-text mb-3">'.$chat->message.'</p></div>';
             }      
             
         }

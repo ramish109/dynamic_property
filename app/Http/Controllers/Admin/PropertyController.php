@@ -61,7 +61,9 @@ class PropertyController extends Controller
 
     public function index(Request $request) 
     {
+       
         if ($request->ajax()) {
+       
             return $this->_propertyModel->getAll($request);
         }
 

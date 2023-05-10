@@ -48,12 +48,30 @@ class SavePropertyController extends Controller
     public function store($property_id,$user_id, Request $request)
     {
      
-        // dd("Store Fx");
-        DB::table('save_properties')
-            ->where('property_id', $property_id)
-            ->update(['status' => 0]);
+        
+         $items = SaveProperty::where([['property_id',$property_id],['user_id',$user_id]])->first();
+         $property=Property::where('id',$property_id)->first();
+         
+        
+         if(!$items){    
+                 
+            $saveProperty = new SaveProperty();
+            $saveProperty->user_id = $user_id;
+            $saveProperty->property_id = $property_id;
+            $saveProperty->category_id = $property->category_id;
+            $saveProperty->country_id = $property->country_id;
+            $saveProperty->state_id = $property->state_id;
+            $saveProperty->city_id = $property->city_id;
+            $saveProperty->status = 1;    
+            $saveProperty->save();
 
-        return redirect()->back()->with('success', 'Property unsaved Successfully.');
+        } else {
+            $saveProperty= SaveProperty::Where([['property_id',$property_id],['user_id',$user_id]])->first();
+            $saveProperty->status = 1;
+            $saveProperty->save();
+        }
+
+        return redirect()->back()->with('success', 'Property Saved Successfully.');
     }
 
     /**
@@ -88,29 +106,29 @@ class SavePropertyController extends Controller
     public function update($property_id,$user_id, Request $request)
     {
      
-        $items = SaveProperty::where('property_id',$property_id)->where('user_id',$user_id)->get();
-        $property=Property::where('id',$property_id)->get()->toArray();
-
-        if($items->isEmpty()){          
-            $item = new SaveProperty();
-            $item->user_id = $user_id;
-            $item->property_id = $property_id;
-            $item->category_id = $property[0]['category_id'];
-            $item->country_id = $property[0]['country_id'];
-            $item->state_id = $property[0]['state_id'];
-            $item->city_id = $property[0]['city_id'];
-            $item->status = 1;    
-            $item->save();
+        
+        $items = SaveProperty::where('property_id',$property_id)->where('user_id',$user_id)->first();
+        $property=Property::where('id',$property_id)->first();
+        
+        if(!$items->count()){    
+                 
+            $saveProperty = new SaveProperty();
+            $saveProperty->user_id = $user_id;
+            $saveProperty->property_id = $property_id;
+            $saveProperty->category_id = $property->category_id;
+            $saveProperty->country_id = $property->country_id;
+            $saveProperty->state_id = $property->state_id;
+            $saveProperty->city_id = $property->city_id;
+            $saveProperty->status = 0;    
+            $saveProperty->save();
 
         } else {
-
-            DB::table('save_properties')
-            ->where('property_id', $property_id)
-            ->where('user_id', $user_id)
-            ->update(['status' => 1]);
+            $saveProperty= SaveProperty::Where([['property_id',$property_id],['user_id',$user_id]])->first();
+            $saveProperty->status = 0;
+            $saveProperty->save();
         }
 
-        return redirect()->back()->with('success', 'Property saved Successfully.');
+        return redirect()->back()->with('success', 'Property Unsave Successfully.');
     }
 
     /**

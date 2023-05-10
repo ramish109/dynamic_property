@@ -24,6 +24,7 @@ class PropertyRepository extends Repository implements IPropertyRepository
 
     public function getByUser($id)
     {
+       
         return Property::with(['user','propertyTranslation','propertyTranslationEnglish','category.categoryTranslation','package.package.packageTranslation'])
             ->where('user_id',$id)
             ->orderBy('id','DESC')

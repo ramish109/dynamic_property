@@ -29,7 +29,7 @@
                                     <div class="col-md-offset-1 col-md-10 col-sm-12 col-xs-12">
                                         <div class="form-group">
                                             <div class="easy-autocomplete">
-                                                <input id="propertyLocation" name="title" placeholder="Enter a state or locality" data-results="states-localities-only" type="text" class="form-control" autocomplete="off">
+                                                <input id="propertyLocation" name="title" placeholder="Enter a state or locality" data-results="states-localities-only" type="text" class="form-control" autocomplete="off" required>
                                                 <div class="easy-autocomplete-container" id="eac-container-propertyLocation">
                                                     {{-- <ul></ul> --}}
                                                 </div>
@@ -43,7 +43,7 @@
                                             <div class="col-sm-3 col-xs-6">
                                                 <div class="form-group">
                                                     <label for="tid">Type</label>
-                                                    <select name="type" id="tid" class="form-control" required>
+                                                    <select name="type" id="tid" class="form-control" >
                                                         <option value="" selected="selected">All Types</option>
                                                         <option value="sale">Sale</option>
                                                         <option value="rent">Rent</option>
@@ -94,11 +94,22 @@
         <div class="wp-section">
             <div class="container">
                 <div class="row">
+                            <!--  -->
+
+                            @if (\Session::has('error'))
+                                <div class="alert alert-danger alert-dismissible fade show">
+                                      {!! \Session::get('error') !!}
+                                </div>
+                            @endif
+
+
+                            <!--  -->
                     <div class="col-md-6 voffset-40 voffset-bottom-40">
                         <div class="section-title-wr">
                             <h3 class="section-title left no-text-transform"><span>Most Expensive Properties for Sale</span></h3>
                         </div>
                         <div class="demand-trend">
+
                             <table class="table table-bordered no-margin">
                                 <tbody>
                                     <tr>

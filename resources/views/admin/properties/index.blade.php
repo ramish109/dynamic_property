@@ -3,14 +3,14 @@
     <div class="dash-content">
         <div class="container-fluid">
                 <ul class="act-wrap mt-3">
-                    {{-- @if(Auth::user()->type != 'owner') --}}
+                    @if(Auth::user()->type != 'admin') 
                         @can('zeroCredit')
                             <div class="alert alert-warning" role="alert">
                                 Please <span class="review-stat">add your credit to create your own posts here:</span>
                                 <a href="{{url('admin/credits')}}" style="color:blue">Add Credit</a>
                             </div>
                         @endcan 
-                    {{-- @endif --}} 
+                     @endif 
                 </ul>
                 <div class="act-title d-flex justify-content-between">
                     <h5>Properties</h5><br>

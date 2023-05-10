@@ -168,142 +168,189 @@ class DemandTrendController extends Controller
         $data['type'] = $request->input('type');
         $data['bed'] = $request->input('bed');
 
-        if( $data['category']=="" && $data['type'] == "" && $data['bed']=="" && $data['title'] ){
-         
-            if( preg_match("/,/i", $data['title']) ){
-                // dd("Area is not available");
-                return redirect()->route('property.DemandTrends');
-            } else {
-                
-                $states = State::where('name','=',$data['title'])->get();
-                $trends = DemandTrend::with('cities')
-                        ->select( 'city_id', DB::raw( '(COUNT(city_id)) as Count'))
-                        ->where('city_id', '!=','null' )
-                        ->where('state_id', '=', $states[0]->id )
-                        ->groupBy('city_id')
-                        ->orderBy('Count', 'desc')
-                        ->get();
 
-                $topname = DB::table('states')->select('name')->where('id','=',$states[0]->id)->get();
-                $heading = "Localties";
-                $rank = 1; $count = 0; $percent = 0;
-                foreach($trends as $trend){ $count+=$trend->Count; }
-                if ($count != 0){ $percent = (100/$count); }
-                return view('frontend.demand-list', compact('topname','heading','rank', 'percent','count', 'trends'));
-
-            }
-
-        }elseif($data['category']=="" && $data['type'] && $data['bed']=="" && $data['title']){
-                    
-            if( preg_match("/,/i", $data['title']) ){
-                // dd("Area is not available");
-                return redirect()->route('property.DemandTrends');
-
-            } else {
-                $states = State::where('name','=',$data['title'])->get();
-                $trends = DemandTrend::with('cities')
-                        ->select( 'city_id', DB::raw( '(COUNT(city_id)) as Count'))
-                        ->where('city_id', '!=','null' )
-                        ->where('type','=', $data['type'])   
-                        ->where('state_id', '=', $states[0]->id )
-                        ->groupBy('city_id')
-                        ->orderBy('Count', 'desc')
-                        ->get();
-
-                $topname = DB::table('states')->select('name')->where('id','=',$states[0]->id)->get();
-                $heading = "Localties";
-                $rank = 1; $count = 0; $percent = 0;
-                foreach($trends as $trend){ $count+=$trend->Count; }
-                if ($count != 0){ $percent = (100/$count); }
-                return view('frontend.demand-list', compact('topname','heading','rank', 'percent','count', 'trends'));
-
-            }
-            
-        }elseif($data['category'] && $data['type']== "" && $data['bed']=="" && $data['title']){
-            
-            if( preg_match("/,/i", $data['title']) ){
-                // dd("Area is not available");
-                return redirect()->route('property.DemandTrends');
-
-            } else {
-                $states = State::where('name','=',$data['title'])->get();
-                $trends = DemandTrend::with('cities')
-                        ->select( 'city_id', DB::raw( '(COUNT(city_id)) as Count'))
-                        ->where('city_id', '!=','null' )
-                        ->where('category_id','=', $data['category'])
-                        ->where('state_id', '=', $states[0]->id )
-                        ->groupBy('city_id')
-                        ->orderBy('Count', 'desc')
-                        ->get();
-                
-                $topname = DB::table('states')->select('name')->where('id','=',$states[0]->id)->get();
-                $heading = "Localties";
-                $rank = 1; $count = 0; $percent = 0;
-                foreach($trends as $trend){ $count+=$trend->Count; }
-                if ($count != 0){ $percent = (100/$count); }
-                return view('frontend.demand-list', compact('topname','heading','rank', 'percent','count', 'trends'));
-
-            }
-
-        } elseif($data['category']=="" && $data['type'] && $data['bed'] && $data['title']){
-            if( preg_match("/,/i", $data['title']) ){
-                // dd("Area is not available");
-                return redirect()->route('property.DemandTrends');
-
-            } else {
-                $states = State::where('name','=',$data['title'])->get();
-                $trends = DemandTrend::with('cities')
-                        ->select( 'city_id', DB::raw( '(COUNT(city_id)) as Count'))
-                        ->where('city_id', '!=','null' )
-                        ->where('bed_id','=', $data['bed'])
-                        ->where('type', '=', $data['type'])
-                        ->where('state_id', '=', $states[0]->id )
-                        ->groupBy('city_id')
-                        ->orderBy('Count', 'desc')
-                        ->get();
-
-                $topname = DB::table('states')->select('name')->where('id','=',$states[0]->id)->get();
-                $heading = "Localties";
-                $rank = 1; $count = 0; $percent = 0;
-                foreach($trends as $trend){ $count+=$trend->Count; }
-                if ($count != 0){ $percent = (100/$count); }
-                return view('frontend.demand-list', compact('topname','heading','rank', 'percent','count', 'trends'));
-
-            }
-
-        }elseif($data['category'] && $data['type'] && $data['bed'] && $data['title']){
-
-            if( preg_match("/,/i", $data['title']) ){
-                // dd("Area is not available");
-                return redirect()->route('property.DemandTrends');
-
-            } else {
-                $states = State::where('name','=',$data['title'])->get();
-                $trends = DemandTrend::with('cities')
-                        ->select( 'city_id', DB::raw( '(COUNT(city_id)) as Count'))
-                        ->where('city_id', '!=','null' )
-                        ->where('bed_id','=', $data['bed'])
-                        ->where('category_id', '=', $data['category'])
-                        ->where('type', '=', $data['type'])
-                        ->where('state_id', '=', $states[0]->id )
-                        ->groupBy('city_id')
-                        ->orderBy('Count', 'desc')
-                        ->get();
-                $topname = DB::table('states')->select('name')->where('id','=',$states[0]->id)->get();
-                $heading = "Localties";
-                $rank = 1; $count = 0; $percent = 0;
-                foreach($trends as $trend){ $count+=$trend->Count; }
-                if ($count != 0){ $percent = (100/$count); }
-                return view('frontend.demand-list', compact('topname','heading','rank', 'percent','count', 'trends'));
-
-            }
-
-        } else {
-            // dd("nothing to select");
+        if( preg_match("/,/i", $data['title']) || !$data['title'] ){
+            // dd("Area is not available");
             return redirect()->route('property.DemandTrends');
+        } else {
+            
+            $states = State::where('name','LIKE','%'.$data['title'].'%')->get();
+            
+            $trends = DemandTrend::with('cities')
+                     ->select('city_id', DB::raw( '(COUNT(city_id)) as Count'))
+                    ->where('city_id', '!=','null' )
+                    ->when($states, function ($query) use ($states) {
+                        $query->where('state_id', '=', $states[0]->id );
+                    })
+                    
+                    // -- type
+                    ->when($data['type'], function ($query) use ($data) {
+                        $query->where('type', '=', $data['type'] );
+                    })
+
+                    // -- category
+                    ->when($data['category'], function ($query) use ($data) {
+                        $query->where('category_id', '=', $data['category'] );
+                    })
+
+                     // -- Bedroom
+                     ->when($data['bed'], function ($query) use ($data) {
+                        $query->where('bed_id', '=', $data['bed'] );
+                    })
+                    
+                    // ->where('state_id', '=', $states->id )
+                    ->groupBy('city_id')
+                    ->orderBy('Count', 'desc')
+                    ->get();
+                    
+            $topname = DB::table('states')->select('name')->where('id','=',$states[0]->id)->get();
+            $heading = "Localties";
+            $rank = 1; $count = 0; $percent = 0;
+            foreach($trends as $trend){ $count+=$trend->Count; }
+            if ($count != 0){ $percent = (100/$count); }
+            return view('frontend.demand-list', compact('topname','heading','rank', 'percent','count', 'trends'));
+
+        }
+        return redirect()->route('property.DemandTrends');
+        // if( $data['category']=="" && $data['type'] == "" && $data['bed']=="" && $data['title'] ){
+         
+        //     if( preg_match("/,/i", $data['title']) ){
+        //         // dd("Area is not available");
+        //         return redirect()->route('property.DemandTrends');
+        //     } else {
+                
+        //         $states = State::where('name','LIKE','%'.$data['title'].'%')->get();
+        //         $trends = DemandTrend::with('cities')
+        //                 ->select( 'city_id', DB::raw( '(COUNT(city_id)) as Count'))
+        //                 ->where('city_id', '!=','null' )
+        //                 ->when($states, function ($query) use ($states) {
+        //                     $query->where('state_id', '=', $states[0]->id );
+        //                 })
+        //                 // ->where('state_id', '=', $states->id )
+        //                 ->groupBy('city_id')
+        //                 ->orderBy('Count', 'desc')
+        //                 ->get();
+
+        //         $topname = DB::table('states')->select('name')->where('id','=',$states[0]->id)->get();
+        //         $heading = "Localties";
+        //         $rank = 1; $count = 0; $percent = 0;
+        //         foreach($trends as $trend){ $count+=$trend->Count; }
+        //         if ($count != 0){ $percent = (100/$count); }
+        //         return view('frontend.demand-list', compact('topname','heading','rank', 'percent','count', 'trends'));
+
+        //     }
+
+        // }elseif($data['category']=="" && $data['type'] && $data['bed']=="" && $data['title']){
+                    
+        //     if( preg_match("/,/i", $data['title']) ){
+        //         // dd("Area is not available");
+        //         return redirect()->route('property.DemandTrends');
+
+        //     } else {
+        //         $states = State::where('name','=',$data['title'])->get();
+        //         $trends = DemandTrend::with('cities')
+        //                 ->select( 'city_id', DB::raw( '(COUNT(city_id)) as Count'))
+        //                 ->where('city_id', '!=','null' )
+        //                 ->where('type','=', $data['type'])   
+        //                 ->where('state_id', '=', $states[0]->id )
+        //                 ->groupBy('city_id')
+        //                 ->orderBy('Count', 'desc')
+        //                 ->get();
+
+        //         $topname = DB::table('states')->select('name')->where('id','=',$states[0]->id)->get();
+        //         $heading = "Localties";
+        //         $rank = 1; $count = 0; $percent = 0;
+        //         foreach($trends as $trend){ $count+=$trend->Count; }
+        //         if ($count != 0){ $percent = (100/$count); }
+        //         return view('frontend.demand-list', compact('topname','heading','rank', 'percent','count', 'trends'));
+
+        //     }
+            
+        // }elseif($data['category'] && $data['type']== "" && $data['bed']=="" && $data['title']){
+            
+        //     if( preg_match("/,/i", $data['title']) ){
+        //         // dd("Area is not available");
+        //         return redirect()->route('property.DemandTrends');
+
+        //     } else {
+        //         $states = State::where('name','=',$data['title'])->get();
+        //         $trends = DemandTrend::with('cities')
+        //                 ->select( 'city_id', DB::raw( '(COUNT(city_id)) as Count'))
+        //                 ->where('city_id', '!=','null' )
+        //                 ->where('category_id','=', $data['category'])
+        //                 ->where('state_id', '=', $states[0]->id )
+        //                 ->groupBy('city_id')
+        //                 ->orderBy('Count', 'desc')
+        //                 ->get();
+                
+        //         $topname = DB::table('states')->select('name')->where('id','=',$states[0]->id)->get();
+        //         $heading = "Localties";
+        //         $rank = 1; $count = 0; $percent = 0;
+        //         foreach($trends as $trend){ $count+=$trend->Count; }
+        //         if ($count != 0){ $percent = (100/$count); }
+        //         return view('frontend.demand-list', compact('topname','heading','rank', 'percent','count', 'trends'));
+
+        //     }
+
+        // } elseif($data['category']=="" && $data['type'] && $data['bed'] && $data['title']){
+        //     if( preg_match("/,/i", $data['title']) ){
+        //         // dd("Area is not available");
+        //         return redirect()->route('property.DemandTrends');
+
+        //     } else {
+        //         $states = State::where('name','=',$data['title'])->get();
+        //         $trends = DemandTrend::with('cities')
+        //                 ->select( 'city_id', DB::raw( '(COUNT(city_id)) as Count'))
+        //                 ->where('city_id', '!=','null' )
+        //                 ->where('bed_id','=', $data['bed'])
+        //                 ->where('type', '=', $data['type'])
+        //                 ->where('state_id', '=', $states[0]->id )
+        //                 ->groupBy('city_id')
+        //                 ->orderBy('Count', 'desc')
+        //                 ->get();
+
+        //         $topname = DB::table('states')->select('name')->where('id','=',$states[0]->id)->get();
+        //         $heading = "Localties";
+        //         $rank = 1; $count = 0; $percent = 0;
+        //         foreach($trends as $trend){ $count+=$trend->Count; }
+        //         if ($count != 0){ $percent = (100/$count); }
+        //         return view('frontend.demand-list', compact('topname','heading','rank', 'percent','count', 'trends'));
+
+        //     }
+
+        // }elseif($data['category'] && $data['type'] && $data['bed'] && $data['title']){
+
+        //     if( preg_match("/,/i", $data['title']) ){
+        //         // dd("Area is not available");
+        //         return redirect()->route('property.DemandTrends');
+
+        //     } else {
+        //         $states = State::where('name','=',$data['title'])->get();
+        //         $trends = DemandTrend::with('cities')
+        //                 ->select( 'city_id', DB::raw( '(COUNT(city_id)) as Count'))
+        //                 ->where('city_id', '!=','null' )
+        //                 ->where('bed_id','=', $data['bed'])
+        //                 ->where('category_id', '=', $data['category'])
+        //                 ->where('type', '=', $data['type'])
+        //                 ->where('state_id', '=', $states[0]->id )
+        //                 ->groupBy('city_id')
+        //                 ->orderBy('Count', 'desc')
+        //                 ->get();
+        //         $topname = DB::table('states')->select('name')->where('id','=',$states[0]->id)->get();
+        //         $heading = "Localties";
+        //         $rank = 1; $count = 0; $percent = 0;
+        //         foreach($trends as $trend){ $count+=$trend->Count; }
+        //         if ($count != 0){ $percent = (100/$count); }
+        //         return view('frontend.demand-list', compact('topname','heading','rank', 'percent','count', 'trends'));
+
+        //     }
+
+        // } else {
+        //     // dd("nothing to select");
+        //     return redirect()->route('property.DemandTrends');
 
             
-        }
+        // }
     
     }
 

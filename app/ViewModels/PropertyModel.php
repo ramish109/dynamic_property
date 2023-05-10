@@ -27,6 +27,7 @@ class PropertyModel implements IPropertyModel
 
     public function getAll(Request $request)
     {
+        
         App::setLocale(Session::get('currentLocal'));
         $locale = Session::get('currentLocal'); 
         $user = auth()->user();
@@ -37,7 +38,7 @@ class PropertyModel implements IPropertyModel
             $id = $user->id;
             $data = $this->_propertyService->getByUser($id);
         }
-        
+       
         return DataTables::of($data)
             ->addIndexColumn()
             ->addColumn('user', function ($row) use($locale){
@@ -55,31 +56,44 @@ class PropertyModel implements IPropertyModel
             })
             ->addColumn('status',function($row){
                 $currentTime = Carbon::now();
-                $end_time = new Carbon($row->package->expire_at);
+                
+                // $end_time = new Carbon($row->package->expire_at);
+                $end_time = new Carbon(($row->package->expire_at ?? null));
+                
                 if($currentTime > $end_time)
                 {
                     $row->status = 0;
                     $row->save();
                 }
+                
                 if($row->status == 0){
                     $but = '<span class="bg-danger p-1 text-white">Expired</span>';
                     return $but;
                 }
+                
                 if($row->status == 1)
                 {
                     $but =  '<span class="bg-success p-1 text-white">Active</span>';
                     return $but;
                 }
+                
                 if($row->status == 2){
                     $but = '<span class="bg-warning p-1 text-white">Pending</span>';
                     return $but;
                 }
+                
+               
             })
             ->addColumn('action1',function($row){
+               
                 if($row->moderation_status == 1)
                 {
+                    
                     $currentTime = Carbon::now();
-                    $end_time = new Carbon($row->package->expire_at);
+                    
+                    // $end_time = new Carbon($row->package->expire_at);
+                    $end_time = new Carbon(($row->package->expire_at ?? null));
+                    
                     if($currentTime > $end_time)
                     {
                         $but = '<span class="bg-danger p-1 text-white">Expired</span>';
@@ -90,22 +104,29 @@ class PropertyModel implements IPropertyModel
                     }
 
                 }else{
-                    if($row->package->is_expired == 0 )
+                   
+                    // if($row->package->is_expired == 0 )
+                    if($row->package && $row->package->is_expired == 0 )
                     {
+                        
                         $but = '<span class="bg-warning p-1 text-white">Pending</span>';
                         return $but;
                     }else{
                         $but = '<span class="bg-danger p-1 text-white">Expired</span>';
                         return $but;
                     }
-
+                    
                 }
             })
             ->addColumn('remainingTime',function($row){
+                
                 if($row->moderation_status == 1)
                 {
+                   
                     $currentTime = Carbon::now();
-                    $end_time = new Carbon($row->package->expire_at);
+                    // $end_time = new Carbon($row->package->expire_at);
+                    $end_time = new Carbon(($row->package->expire_at ?? null));
+                   
                     if($currentTime > $end_time)
                     {
                         return '00:00:00';
@@ -113,7 +134,9 @@ class PropertyModel implements IPropertyModel
                         return  $remainingTime = $end_time->diff($currentTime)->format('%H:%I:%S');
                     }
                 }else{
-                    if($row->package->is_expired == 0)
+                   
+                    // if($row->package->is_expired == 0)
+                    if($row->package && $row->package->is_expired == 0 )
                     {
                         $but = '<span class="bg-warning p-1 text-white">Pending</span>';
                         return $but;
@@ -123,6 +146,7 @@ class PropertyModel implements IPropertyModel
                 }
             })
             ->addColumn('featured',function($row){
+               
                 if($row->is_featured == 1)
                 {
                     $but =  '<span class="bg-primary p-1 text-white">Featured</span>';
@@ -138,6 +162,7 @@ class PropertyModel implements IPropertyModel
                     // $actionBtn = '<div class="d-flex justify-content-center">
                     // <a href="'.route('admin.properties.edit',$row->id).'" class="edit btn btn-info btn-sm"><i class="la la-edit"></i></a>
                     // </div>';
+                   
                     $actionBtn = '<div class="d-flex justify-content-end">
                     <a href="'.route('admin.properties.edit',$row->id).'" class="edit btn btn-info btn-sm"><i class="la la-edit"></i></a>
                     | <form action="'.route('admin.properties.destroy',$row->id).'" method="POST">
@@ -145,7 +170,9 @@ class PropertyModel implements IPropertyModel
                         '.method_field("DELETE").'
                     <button class="btn btn-danger btn-sm" onclick="return confirm(\'Are you sure?\')"><i class="la la-trash"></i></button>
                     </form></div>';
+                    
                 }else{
+                    
                     $actionBtn = '<div class="d-flex justify-content-end">
                     <a href="'.route('admin.properties.edit',$row->id).'" class="edit btn btn-info btn-sm"><i class="la la-edit"></i></a>
                     | <form action="'.route('admin.properties.destroy',$row->id).'" method="POST">
@@ -154,9 +181,10 @@ class PropertyModel implements IPropertyModel
                     <button class="btn btn-danger btn-sm" onclick="return confirm(\'Are you sure?\')"><i class="la la-trash"></i></button>
                     </form></div>';
                 }
-                
+               
                 return $actionBtn;
             })
+
             ->rawColumns(['status','action','action1','remainingTime','featured'])
             ->make(true);
     }

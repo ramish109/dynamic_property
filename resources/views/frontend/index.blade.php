@@ -219,7 +219,7 @@
             <div class="row">
                 <div class="col-md-offset-1 col-md-12 col-sm-12 col-xs-12 filter-panel">
                     <div class="row">
-                        <div class="col-sm-3 col-xs-6">
+                        <!-- <div class="col-sm-3 col-xs-6">
                             <div class="form-group">
                                 <label class="text-light">City</label>
                                 <select name="city_id" class="hero__form-input  form-control custom-select" id="state">
@@ -229,7 +229,7 @@
                                 @endforeach
                             </select>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-sm-3 col-xs-6">
                             <div class="form-group">
                                 <label class="text-light">Bathrooms</label>
@@ -310,6 +310,16 @@
                 Featured Real Estate Companies
             </h3>
         </div>
+         <!--  -->
+
+         @if (\Session::has('success'))
+            <div class="alert alert-success alert-dismissible fade show">
+                    {!! \Session::get('success') !!}
+            </div>
+        @endif
+
+
+        <!--  -->
         <!-- <div class="col-md-12 image-fade-flex" id="image-fade-flex">
             <div class="col-md-3 images-fade">
                 <a href="#">
@@ -390,18 +400,25 @@
                                     
                                 @can('isIndividual')
                                     @if(Auth::user() && Auth::user()->is_email_verified == 1)
-                                        @php $save_property_exist = $property->save_property; @endphp
+                                       
+                                        @if( in_array( Auth::user()->id , getSaveProperty_toArray($property->id)) )
+                                        <li><a href="{{ route('property.not-save', ['user_id' => Auth::user()->id, 'property_id'=> $property->id]) }}"><i class="fa fa-heart" ></i><span>Saved</span></a></li>
+                                        @else
+                                        <li><a href="{{ route('property.save', ['user_id' => Auth::user()->id, 'property_id'=> $property->id]) }}" style="color: black"><i class="fa fa-heart" ></i><span>Save</span></a></li>
+                                        @endif
+
+                                        <!-- @php $save_property_exist = $property->save_property; @endphp
 
                                         @if($save_property_exist != null)
                                             @if($property->save_property->status == 1 && $property->save_property->user_id == Auth::user()->id)
-                                                <li><a href="{{ route('property.save', ['user_id' => Auth::user()->id, 'property_id'=> $property->id]) }}"><i class="fa fa-heart"></i><span>Saved</span></a></li>
+                                                <li><a href="{{ route('property.save', ['user_id' => Auth::user()->id, 'property_id'=> $property->id]) }}" style="color: black"><i class="fa fa-heart" ></i><span>Save</span></a></li>
                                             @elseif($property->save_property->status == 0)
-                                                <li><a href="{{ route('property.not-save', ['user_id' => Auth::user()->id, 'property_id'=> $property->id]) }}"><i class="fa fa-heart"></i><span>Unsaved</span></a></li>
+                                                <li><a href="{{ route('property.not-save', ['user_id' => Auth::user()->id, 'property_id'=> $property->id]) }}"><i class="fa fa-heart" ></i><span>Saved</span></a></li>
                                             @elseif($property->save_property->status != 0 || $property->$save_property->status != 1 )
                                             <li><a href="{{ route('property.not-save', ['user_id' => Auth::user()->id, 'property_id'=> $property->id]) }}"><i class="fa fa-heart"></i><span>Save</span></a></li>
                                             @endif
-                                        @endif
-                                    @endif
+                                        @endif --> 
+                                    @endif 
                                 @endcan
                          
                             </ul>

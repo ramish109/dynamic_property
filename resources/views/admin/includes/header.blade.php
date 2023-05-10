@@ -102,11 +102,13 @@
 
                     <div class="header-button-item has-noti js-item-menu">
                         <i class="las la-bell"></i>
+                       
                         <div class="notifi-dropdown js-dropdown">
-
+                       
                             <div class="container">
-                                @if(! $notifies->isEmpty() )
-                                
+                            
+                                @if(!$notifies->isEmpty() )
+                               
                                 <div class="row p-1 border">
                                     @foreach($notifies as $notify)
 

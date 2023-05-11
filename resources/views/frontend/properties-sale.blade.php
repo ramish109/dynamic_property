@@ -209,7 +209,7 @@
                     <!--        </div>-->
                     <!--    </div>-->
                     <!--</div>-->
-                    <div id="advancedSearchFilters" class="panel panel-default panel-sidebar-1 hidden-xs">
+                    <!-- <div id="advancedSearchFilters" class="panel panel-default panel-sidebar-1 hidden-xs">
                         <div class="panel-heading">
                             <h2><i class="fa fa-filter"></i>&nbsp; Advanced Filter Options</h2>
                         </div>
@@ -372,7 +372,7 @@
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </div> -->
                     <!--<div class="panel panel-default panel-sidebar-1 hidden-ma property-availability-count">-->
                     <!--    <div class="panel-heading">-->
                     <!--        <h2><i class="fa fa-chart-bar"></i>&nbsp; Available Property</h2>-->

@@ -21,7 +21,7 @@
                                     <div class="agent-details">
                                         <h3>@if(isset($user->userTranslation->f_name) ) {{isset($user->userTranslation->f_name) ? $user->userTranslation->f_name : $user->userTranslationEnglish->f_name}}@endif @if(isset($user->userTranslation->l_name) ) {{isset($user->userTranslation->f_name) ? $user->userTranslation->l_name : $user->userTranslationEnglish->l_name}} @endif</h3>
                                         <ul class="address-list">
-                                         @if(isset($user->userTranslation->company_name)) <li><span>Company:</span>{{isset($user->userTranslation->company_name) ? $user->userTranslation->company_name : $user->userTranslationEnglish->company_name}}</li>@endif
+                                        @if($user->userTranslation->company_name) <li><span>Company:</span>{{isset($user->userTranslation->company_name) ? $user->userTranslation->company_name : $user->userTranslationEnglish->company_name}}</li>@endif
                                          @if($user->title)<li><span>Title:</span>{{$user->title}}</li>@endif
                                          @if($user->mobile_office)<li><span>Office:</span>{{$user->mobile_office}}</li>@endif
                                          @if($user->mobile)<li><span>Mobile:</span>{{$user->mobile}}</li>@endif

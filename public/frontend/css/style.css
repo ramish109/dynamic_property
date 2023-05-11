@@ -144,11 +144,11 @@ footer {
     margin-bottom: 20px;
     text-transform: capitalize!important;
     font-size: 14px ;
-    font-weight: 500!important;
+    font-weight: 800!important;
 }
 footer .col p {
     color: #ccc;
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 10px;
 }
 a.btn.btn-base {
@@ -193,6 +193,7 @@ footer hr {
     border-color: #59646b;
 }
 footer .copyright {
+    text-align: center;
     color: #fff;
     font-size: 14px;
 }
@@ -232,4 +233,7 @@ a.dropdown-item:nth-child(1) {
     nav.navbar.navbar-expand-lg.navbar-light.bg-light > a.navbar-brand {
         width: 65%;
     }
+}
+.max-w-sm.w-full.bg-white.shadow-lg.rounded-lg.pointer-events-auto.border-l-4.border-green-600 {
+    margin-top: 60px !important;
 }

@@ -169,7 +169,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <!-- <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="list_info">Description</label> <span class="text-danger">*</span>
                                         <textarea name="description" class="form-control" id="list_info" rows="4" placeholder="Enter your text here">{{isset($siteInfo->description) ? $siteInfo->description : 'description'}}</textarea>
@@ -177,7 +177,7 @@
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="col-md-12">
                                     <div class="form-group">

@@ -762,6 +762,14 @@
                 });
 
             });
+
+            // 
+
+            $(document).ready(function(){
+  setTimeout(function(){
+    $('.alert-dismissible').hide();
+},5000);
+});
         </script>
 
 

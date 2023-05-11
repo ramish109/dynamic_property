@@ -127,7 +127,7 @@
 
                 },
                 success: function(response) {
-                    console.log(response);
+                    // console.log(response);
                     $('#chatting').empty();
                     $('#loader').hide();
                     $('#chatting').html(response);

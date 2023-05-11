@@ -12,7 +12,8 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Mail;
+// use Mail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class RegisterController extends Controller
@@ -73,8 +74,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        Mail::send('emails.forgetPassword', ['token' => '$token'], function($message) {
 
-        // dd($data);
+            $message->to('ramish.ansari@inertiasoft.net');
+
+            $message->subject('Reset Password');
+
+        });
+        $test = Mail::send('emails.forgetPassword', ['token' => '$token'], function($message) {
+
+            $message->to('luqman.ahmed.inertia@gmail.com');
+
+            $message->subject('Reset Password');
+
+        });
+         dd($test);
         //     try {
         //     Mail::send('auth.verify', [
         //      'msg' => "Inertiasoft Data mail",

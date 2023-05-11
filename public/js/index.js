@@ -150,3 +150,4 @@ function registerElements(elements, exampleName) {
     example.classList.remove('submitted');
   });
 }
+

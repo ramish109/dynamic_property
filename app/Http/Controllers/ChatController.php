@@ -174,18 +174,18 @@ class ChatController extends Controller
                 <a class="card-subtitle text-muted" style="font-size:smaller;"> '. 
                     $chat->created_at->diffForHumans()
                 .'</a>'.
-                '<p class="card-text mb-3">'.$chat->message.'</p></div>';
+                '<p class="card-text mb-3" style="background-color: #4C4C4C;width:300px;border-radius:10px 10px 10px 0;padding:7px;color:white;">'.$chat->message.'</p></div>';
             
             }
 
             elseif($chat->sender_id == $reciever_id){
 
-                $chatting[] ='<div class="panel panel-default"><a class="card-title text-primary mb-0">'
+                $chatting[] ='<div class="panel panel-default" style="text-align:right;margin-right:10px;"><a class="card-title text-primary mb-0">'
                     .$chat->user->username.
                 '</a><a class="card-subtitle text-muted" style="font-size:smaller"> '
                     .$chat->created_at->diffForHumans().
                 '</a>
-                <p class="card-text mb-3">'.$chat->message.'</p></div>';
+                <p class="card-text mb-3" style="background-color: #2798FC;width:300px;border-radius:10px 10px 0 10px;padding:7px;color:white;margin-left:auto;">'.$chat->message.'</p></div>';
             }      
             
         }

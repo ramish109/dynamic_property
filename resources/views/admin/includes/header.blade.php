@@ -1,4 +1,4 @@
-<header class="db-top-header" style="z-index: 1;">
+<header class="db-top-header" style="z-index: 999999;">
 
     <div class="container-fluid">
 

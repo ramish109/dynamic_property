@@ -53,7 +53,15 @@
                                 </div>
                             </div>
                             <div class="col-md-3 hidden-xs text-right">
-                                <img class="company-logo" itemprop="image" src="{{ asset('/images/users/tony-stark-2012-01-23-61ece6680e692.jpg') }}">
+                               
+                                @if( file_exists(public_path() . '/images/users/'.$builder->image) && $builder->image != null)
+                                    
+                                    <img class="company-logo" itemprop="image" src="{{URL::asset('/images/users/'.$builder->image)}}">
+                                @else
+                                <img class="company-logo" itemprop="image" src="{{URL::asset('images/users/agent_1.jpg')}}">
+                                    
+                                    
+                                @endif
                             </div>
                         </div>
                         <hr>
@@ -64,7 +72,7 @@
                 </div>
                 <div class="col-md-4">
 
-                    <div id="advancedSearchFilters" class="panel panel-default panel-sidebar-1 hidden-xs">
+                    <!-- <div id="advancedSearchFilters" class="panel panel-default panel-sidebar-1 hidden-xs">
                         <div class="panel-heading">
                             <h2><i class="fa fa-filter"></i>&nbsp; Advanced Filter Options</h2>
                         </div>
@@ -229,7 +237,7 @@
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="panel panel-default panel-sidebar-1 hidden-ma hidden-xs">
                         <div class="panel-heading">

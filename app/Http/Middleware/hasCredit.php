@@ -28,6 +28,9 @@ class hasCredit
        // return $next($request);
 
         $user = Auth::user();
+        if($user->type == 'owner' || $user->type == 'admin'){
+            return $next($request);
+        }
         if(!$user->packageUser->sum('item') > 0 )
         {
             return  abort(403);

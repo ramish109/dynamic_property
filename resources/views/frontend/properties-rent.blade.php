@@ -209,14 +209,14 @@
                     <!--        </div>-->
                     <!--    </div>-->
                     <!--</div>-->
-                    <div id="advancedSearchFilters" class="panel panel-default panel-sidebar-1 hidden-xs">
+                    <!-- <div id="advancedSearchFilters" class="panel panel-default panel-sidebar-1 hidden-xs">
                         <div class="panel-heading">
                             <h2><i class="fa fa-filter"></i>&nbsp; Advanced Filter Options</h2>
                         </div>
                         <div class="panel-body">
                             <form name="search_jsForm" id="search_jsForm" class="form-light" action="{{route('search.property')}}" method="GET">
                                 @csrf
-                                <!-- <input type="hidden" name="_token" value="wu0r1Ci1thLtMMoh6IjJtnHVyyrcEJRG6YA91i8l"> -->
+                              
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="form-group">
@@ -373,7 +373,7 @@
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </div> -->
                     <!--<div class="panel panel-default panel-sidebar-1 hidden-ma property-availability-count">-->
                     <!--    <div class="panel-heading">-->
                     <!--        <h2><i class="fa fa-chart-bar"></i>&nbsp; Available Property</h2>-->

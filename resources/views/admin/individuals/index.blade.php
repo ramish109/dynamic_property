@@ -1,6 +1,6 @@
 @extends('admin.main') 
 @section('content')
-<?php $isAdmin = ($individuals[0]->type == 'admin') ? true : false  ?>
+<?php $isAdmin = (Auth::user()->type == 'admin') ? true : false  ?>
     <div class="dash-content"> 
         <div class="container-fluid"> 
  

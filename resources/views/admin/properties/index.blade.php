@@ -3,7 +3,7 @@
     <div class="dash-content">
         <div class="container-fluid">
                 <ul class="act-wrap mt-3">
-                    @if(Auth::user()->type != 'admin') 
+                    @if(Auth::user()->type != 'admin' && Auth::user()->type != 'owner' ) 
                         @can('zeroCredit')
                             <div class="alert alert-warning" role="alert">
                                 Please <span class="review-stat">add your credit to create your own posts here:</span>
@@ -14,14 +14,18 @@
                 </ul>
                 <div class="act-title d-flex justify-content-between">
                     <h5>Properties</h5><br>
-                    @if(Auth::user()->type == 'owner')
-                    <a href="{{route('admin.properties.create')}}" class="btn v3">Add Property</a>
-                    @endif
-                    @if(Auth::user()->type != 'admin')
-                        @can('hasCredit')<a href="{{route('admin.properties.create')}}" class="btn v3">Add Property</a>@endcan
-                    @endif
+                    @if(Auth::user()->type == 'owner' || Auth::user()->type == 'admin')
+                        <a href="{{route('admin.properties.create')}}" class="btn v3">Add Property</a>
+                    @else
                     
-                    @can('hasListing')<a href="{{route('admin.properties.create')}}" class="btn v3">Add Property</a>@endcan 
+                        @can('hasCredit')<a href="{{route('admin.properties.create')}}" class="btn v3">Add Property</a>@endcan
+
+                    @endif
+                    <!-- @if(Auth::user()->type != 'admin')
+                        @can('hasCredit')<a href="{{route('admin.properties.create')}}" class="btn v3">ddAdd Property</a>@endcan -->
+                    <!-- @endif -->
+                    
+                    <!-- @can('hasListing')<a href="{{route('admin.properties.create')}}" class="btn v3">eeAdd Property</a>@endcan  -->
 
                 </div>
 

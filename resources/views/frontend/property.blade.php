@@ -368,7 +368,7 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <button type="submit" class="btn btn-block btn-base btn-icon btn-icon-right btn-search " style="background-color: #0D6EFD !important; border-color: #0D6EFD !important;">
-                                                <span>Search</span>
+                                                <span>Send Message</span>
                                             </button>
                                         </div>
                                     </div>
@@ -378,7 +378,7 @@
                         </div>
                         @endcan
 
-                        <div id="advancedSearchFilters" class="panel panel-default panel-sidebar-1 hidden-xs">
+                        <!-- <div id="advancedSearchFilters" class="panel panel-default panel-sidebar-1 hidden-xs">
                         <div class="panel-heading">
                             <h2><i class="fa fa-filter"></i>&nbsp; Advanced Filter Options</h2>
                         </div>
@@ -541,7 +541,7 @@
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </div> -->
 
                         <div class="panel panel-default panel-sidebar-1 hidden-ma property-availability-count">
                             <div class="panel-heading">

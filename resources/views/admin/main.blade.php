@@ -78,7 +78,9 @@
             --theme-color: {{isset($siteInfo->color) ? $siteInfo->color : '#000000'}};
 
         }
-
+.max-w-sm.w-full.bg-white.shadow-lg.rounded-lg.pointer-events-auto.border-l-4.border-green-600{
+    margin-top:60px !important;
+}
     </style>
 
     @stack('styles')
@@ -191,7 +193,14 @@
 <script type="text/javascript" src="{{ asset('datatable/datatable.responsive.min.js') }}"></script>
 
 <script src="{{ asset('/vendor/translation/js/app.js') }}"></script>
+<script>
+    $(document).ready(function(){
+  setTimeout(function(){
+    $('.max-w-sm.w-full.bg-white.shadow-lg.rounded-lg.pointer-events-auto.border-l-4.border-green-600').hide();
+},5000);
+});
 
+</script>
 @stack('scripts')
 @notifyJs
 <x:notify-messages />

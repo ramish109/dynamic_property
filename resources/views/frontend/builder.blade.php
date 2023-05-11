@@ -133,7 +133,7 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <button type="submit" class="btn btn-block btn-base btn-icon btn-icon-right btn-search " style="background-color: #0D6EFD !important; border-color: #0D6EFD !important;">
-                                            <span>Search</span>
+                                            <span>Send Message </span>
                                         </button>
                                     </div>
                                 </div>

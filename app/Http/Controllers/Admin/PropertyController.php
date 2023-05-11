@@ -72,6 +72,7 @@ class PropertyController extends Controller
  
     public function create()
     { 
+       
         // $auth = Auth::user();
         // $package = Package::where('id', 5)->get()->first();
         // $package_user = PackageUser::where('user_id', $auth->id)->get();
@@ -90,7 +91,7 @@ class PropertyController extends Controller
 
         // }
 
-        // dd("end gate");
+        
 
         App::setLocale(Session::get('currentLocal'));
         $categories = $this->_categoryTranslationModel->getByLocale();
